@@ -8,4 +8,4 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Build the Docker image
-      run: ../scripts/build.bat
+      run: ${PWD}\..\scripts\build.bat
