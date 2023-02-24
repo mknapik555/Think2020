@@ -7,9 +7,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3    
     - name: Build the Docker image
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       run: |
         # docker login -u marcin.knapik@ocean.ibm.com -p sha256~ELOAf1B-AUz3UOVAGl2nTNV0in9kTBq4JVtYYXCrGik default-route-openshift-image-registry.apps.cloud.waw.pl.gsni.kyndryl.net
-        echo ${{ DOCKER_USERNAME }}
+        echo $DOCKER_USERNAME
         export AML_IMAGE_TAG=0.0.0.5
         export AML_REPOSITORY=default-route-openshift-image-registry.apps.cloud.waw.pl.gsni.kyndryl.net/aml
         export AML_PROJECT_PATH=/home/marcin/gsni-okd/amelia
