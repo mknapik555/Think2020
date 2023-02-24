@@ -1,15 +1,15 @@
-name: MK Test Docker Image CI
+name: amelia build
 on: [workflow_dispatch]
 jobs:
   build:
-    name: Build Application
+    name: build
     runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v3
-    
+    - uses: actions/checkout@v3    
     - name: Build the Docker image
       run: |
-        export TAG=0.0.0.5
+        export AML_IMAGE_TAG=0.0.0.5
+        export AML_REPOSITORY=default-route-openshift-image-registry.apps.cloud.waw.pl.gsni.kyndryl.net/aml
+        export AML_PROJECT_PATH=/home/marcin/gsni-okd/amelia
         /home/marcin/gsni-okd/amelia-images-build.sh
-        unset TAG
-        
+        unset AML_IMAGE_TAG AML_REPOSITORY AML_PROJECT_PATH
