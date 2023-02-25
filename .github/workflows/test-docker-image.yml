@@ -17,20 +17,21 @@ jobs:
         # docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} default-route-openshift-image-registry.apps.cloud.waw.pl.gsni.kyndryl.net
         echo test01 
         AML_IMAGE_TAG=$(date '+%Y%m%d.%H%M')
+        echo ${AML_IMAGE_TAG} >> $GITHUB_OUTPUT
         export AML_REPOSITORY=default-route-openshift-image-registry.apps.cloud.waw.pl.gsni.kyndryl.net/aml
         export AML_PROJECT_PATH=/home/marcin/gsni-okd/amelia
         # /home/marcin/gsni-okd/amelia-images-build.sh
         # /home/marcin/gsni-okd/amelia-images-push.sh
-        echo ${AML_IMAGE_PATH}
+        echo ${AML_IMAGE_TAG}
         unset AML_REPOSITORY    
         echo "end"
   deploy:
     runs-on: self-hosted
-    needs: build
     steps:  
     - name: deploy
       run: |
         echo "start"
+        echo $GITHUB_OUTPUT
         echo ${DOCKER_USERNAME} 
         echo ${DOCKER_PASSWORD}
         echo ${AML_IMAGE_TAG}
