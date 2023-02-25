@@ -11,6 +11,8 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
+        echo $(whoami)
+        echo $(pwd)
         # docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} default-route-openshift-image-registry.apps.cloud.waw.pl.gsni.kyndryl.net
         echo test01 
         AML_IMAGE_TAG=$(date '+%Y%m%d.%H%M')
