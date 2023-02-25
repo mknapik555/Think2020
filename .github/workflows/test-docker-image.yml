@@ -26,6 +26,7 @@ jobs:
         echo "end"
   deploy:
     runs-on: self-hosted
+    needs: build
     steps:  
     - name: deploy
       run: |
