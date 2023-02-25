@@ -3,7 +3,7 @@ on: [workflow_dispatch]
 
 jobs:
   node-docker:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container:
       image: alpine:latest
     steps:
