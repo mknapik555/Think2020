@@ -29,4 +29,4 @@ jobs:
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
     - name: Show env
-      run: env
+      run: env | grep GITHUB
