@@ -31,3 +31,4 @@ jobs:
       run: echo "Hello ${{ github.event.inputs.name }}"; echo ${GITHUB_OUTPUT}
     - name: Show env
       run: echo ${GITHUB_OUTPUT}
+    - run: echo hehe
