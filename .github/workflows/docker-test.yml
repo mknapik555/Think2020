@@ -8,5 +8,4 @@ jobs:
       image: alpine:latest
     steps:
          - name: Log alpine version
-           run: |
-             cat /etc/os-release 
+           run: env 
