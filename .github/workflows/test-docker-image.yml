@@ -11,6 +11,7 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
+        echo "start"
         echo $(whoami)
         echo $(pwd)
         # docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} default-route-openshift-image-registry.apps.cloud.waw.pl.gsni.kyndryl.net
@@ -20,15 +21,19 @@ jobs:
         export AML_PROJECT_PATH=/home/marcin/gsni-okd/amelia
         # /home/marcin/gsni-okd/amelia-images-build.sh
         # /home/marcin/gsni-okd/amelia-images-push.sh
-        echo ${AML_IMAGE_TAG}
-        unset AML_REPOSITORY AML_PROJECT_PATH
-    
+        echo ${AML_IMAGE_PATH}
+        unset AML_REPOSITORY    
+        echo "end"
   deploy:
     runs-on: self-hosted
     steps:  
     - name: deploy
       run: |
+        echo "start"
         echo ${DOCKER_USERNAME} 
+        echo ${DOCKER_PASSWORD}
         echo ${AML_IMAGE_TAG}
+        echo ${AML_REPOSITORY}
+        echo ${AML_PROJECT_PATH}
         echo "end"
     
