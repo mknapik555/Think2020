@@ -27,6 +27,6 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+      run: echo "Hello ${{ github.event.inputs.name }}"; echo ${GITHUB_OUTPUT}
     - name: Show env
-      run: env | grep GITHUB
+      run: echo ${GITHUB_OUTPUT}
