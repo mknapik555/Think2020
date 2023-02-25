@@ -20,7 +20,7 @@ jobs:
         export AML_PROJECT_PATH=/home/marcin/gsni-okd/amelia
         # /home/marcin/gsni-okd/amelia-images-build.sh
         # /home/marcin/gsni-okd/amelia-images-push.sh
-        echo ${AML_IMAGE_PATH}
+        echo ${AML_IMAGE_TAG}
         unset AML_REPOSITORY AML_PROJECT_PATH
     
   deploy:
@@ -29,6 +29,6 @@ jobs:
     - name: deploy
       run: |
         echo ${DOCKER_USERNAME} 
-        echo ${AML_IMAGE_PATH}
+        echo ${AML_IMAGE_TAG}
         echo "end"
     
