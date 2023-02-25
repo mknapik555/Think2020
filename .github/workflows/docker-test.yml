@@ -1,0 +1,12 @@
+name: amelia build
+on: [workflow_dispatch]
+
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+    steps:
+         - name: Log alpine version
+           run: |
+             cat /etc/os-release 
